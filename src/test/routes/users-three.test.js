@@ -13,6 +13,11 @@ beforeAll(async () => {
     context = await Context.build();
 });
 
+// make sure we delete different rows in different tables before each test inside of this file
+beforeEach(async () => {
+    await context.reset();
+});
+
 // disconnect after tests
 // code inside the afterAll function will be executed last
 afterAll(() => {
